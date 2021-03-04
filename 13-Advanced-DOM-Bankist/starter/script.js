@@ -2,7 +2,7 @@
 
 ///////////////////////////////////////
 // Modal window
-
+/*
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
@@ -68,4 +68,21 @@ console.log(logo.alt);
 console.log(logo.getAttribute('src')) //only get 'img/logo.png'
 console.log(logo.src) // http://127.0.0.1:5500/13-Advanced-DOM-Bankist/starter/img/logo.png
 message.style.setProperty(backgroundColor,'red');
- 
+ */
+
+ const btnScrollTo = document.querySelector('.btn--scroll-to');
+ const section1 = document.querySelector('#section--1');
+ btnScrollTo.addEventListener('click',function(e){
+   const s1Cords = section1.getBoundingClientRect(e);
+    console.log(e.target.getBoundingClientRect(s1Cords));
+    //console.log(window.pageXOffset,window.pageYOffset)
+    //console.log('client height and width',document.documentElement.clientHeight,'====' ,document.documentElement.clientWidth)
+
+  // window.scrollTo(s1Cords.left + window.pageXOffset,s1Cords.top + window.pageYOffset);
+window.scrollTo({
+ left: s1Cords.left + window.pageXOffset,
+  top : s1Cords.top + window.pageYOffset,
+  behavior:"smooth"
+});
+//section1.scrollIntoView({behavior: "smooth"});//This will work on only morden browser
+  });
