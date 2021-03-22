@@ -22,4 +22,4 @@ if (navigator.geolocation){
 		console.log(`https://www.google.co.in/maps/@${latitude},${longitude}`)
 },function(){
 	alert('Could not get your position'); 
-})
+});
