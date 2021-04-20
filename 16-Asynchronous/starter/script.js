@@ -203,10 +203,10 @@ const getCountryData = function(country){
             return fetch(`https://restcountries.eu/rest/v2/alpha/${neighbours}?fullText=true`);
         }
    }).then(function(response2){
-        return response2
+        return response2.json();
    }).then(function(data2){
+    renderCountry(data2)
     console.log(data2);
-    renderCountry(data2);
    })
 }
 getCountryData('nepal');
