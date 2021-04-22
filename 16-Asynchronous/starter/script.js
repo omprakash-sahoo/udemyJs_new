@@ -193,10 +193,11 @@ const getCountryData = function(country){
     fetch(`https://restcountries.eu/rest/v2/name/${country}?fullText=true`).then(function(response){
         return response.json();
     }).then(function(data){
+      console.log(data);
         const alldata = data[0];
         renderCountry(alldata);
        const neighbours = alldata.borders[0];
-       console.log(neighbours);
+       console.log(alldata);
         if(!neighbours){
             return
         }else{
@@ -205,11 +206,17 @@ const getCountryData = function(country){
    }).then(function(response2){
         return response2.json();
    }).then(function(data2){
-    renderCountry(data2)
-    console.log(data2);
+    renderCountry(data2,'neighbour')
+    
+   }).catch(function(error){
+     alert(error);
    })
 }
-getCountryData('nepal');
+
+btn.addEventListener('click',function(){
+  getCountryData('nepal');
+})
+getCountryData('indiassss');
 
 // fetch('https://restcountries.eu/rest/v2/alpha/usa').then(function(response){
 //     return response.json();
